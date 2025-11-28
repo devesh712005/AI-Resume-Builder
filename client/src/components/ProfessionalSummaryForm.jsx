@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Sparkles } from "lucide-react";
 import React from "react";
 
@@ -32,6 +33,12 @@ const ProfessionalSummaryForm = ({ data, onChange }) => {
       </div>
     </div>
   );
+=======
+import React from "react";
+
+const ProfessionalSummaryForm = ({ data, onChange, setResumeData }) => {
+  return <div className="space-y-4"></div>;
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
 };
 
 export default ProfessionalSummaryForm;

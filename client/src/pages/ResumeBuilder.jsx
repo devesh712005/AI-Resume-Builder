@@ -7,6 +7,7 @@ import {
   Briefcase,
   ChevronLeft,
   ChevronRight,
+<<<<<<< HEAD
   DownloadIcon,
   EyeIcon,
   EyeOffIcon,
@@ -14,17 +15,25 @@ import {
   FolderIcon,
   GraduationCap,
   Share2Icon,
+=======
+  FileText,
+  FolderIcon,
+  GraduationCap,
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
   Sparkle,
   User,
 } from "lucide-react";
 import ResumePreview from "../components/ResumePreview";
 import TemplateSelector from "../components/TemplateSelector";
 import ColorPicker from "../components/ColorPicker";
+<<<<<<< HEAD
 import ProfessionalSummaryForm from "../components/ProfessionalSummaryForm";
 import ExperienceForm from "../components/ExperienceForm";
 import EducationForm from "../components/EducationForm";
 import ProjectForm from "../components/ProjectForm";
 import SkillsForm from "../components/SkillsForm";
+=======
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
 
 function ResumeBuilder() {
   const { resumeId } = useParams();
@@ -36,7 +45,10 @@ function ResumeBuilder() {
     professional_summary: "",
     experience: [],
     education: [],
+<<<<<<< HEAD
     project: [],
+=======
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
     skills: [],
     template: "classic",
     accent_color: "#3B82F6",
@@ -69,6 +81,7 @@ function ResumeBuilder() {
     loadExistingResume();
   }, [resumeId]);
 
+<<<<<<< HEAD
   const changeResumeVisibility = async () => {
     setResumeData({ ...resumeData, public: !resumeData.public });
   };
@@ -85,6 +98,8 @@ function ResumeBuilder() {
     window.print();
   };
 
+=======
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 py-6">
@@ -157,13 +172,18 @@ function ResumeBuilder() {
                     }`}
                     disabled={activeSectionIndex === sections.length - 1}
                   >
+<<<<<<< HEAD
                     Next <ChevronRight className="size-4" />
+=======
+                    Next <ChevronRight className="size-4/>" />
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
                   </button>
                 </div>
               </div>
               {/*Form Content*/}
               <div className="space-y-6">
                 {activeSection.id === "personal" && (
+<<<<<<< HEAD
                   <PersonalInfoForm
                     data={resumeData.personal_info}
                     onChange={(data) =>
@@ -236,10 +256,28 @@ function ResumeBuilder() {
               <button className="bg-gradient-to-br from-green-100 to-green-200 ring-green-300 text-green-600 ring hover:ring-green-400 transition-all rounded-md px-6 py-2 mt-6 text-sm ">
                 Save Changes
               </button>
+=======
+                  <div>
+                    <PersonalInfoForm
+                      data={resumeData.personal_info}
+                      onChange={(data) =>
+                        setResumeData((prev) => ({
+                          ...prev,
+                          personal_info: data,
+                        }))
+                      }
+                      removeBackground={removeBackground}
+                      setRemoveBackground={setRemoveBackground}
+                    />
+                  </div>
+                )}
+              </div>
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
             </div>
           </div>
           {/*Right Panel - Preview*/}
           <div className="lg:col-span-7 max-lg:mt-6">
+<<<<<<< HEAD
             <div className="relative w-full">
               <div className="absolute bottom-3 left-0 right-0 flex items-center justify-end gap-2">
                 {resumeData.public && (
@@ -272,6 +310,9 @@ function ResumeBuilder() {
 
               {/*buttons---*/}
             </div>
+=======
+            <div>{/*buttons---*/}</div>
+>>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
             {/* -- resume preview--*/}
             <ResumePreview
               data={resumeData}
