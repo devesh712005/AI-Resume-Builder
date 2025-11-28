@@ -32,26 +32,27 @@ function ResumePreview({ data, template, accentColor, classes = "" }) {
             size: letter;
             margin: 0;
           }
+
           @media print {
-            html,
-            body {
-              width: 8.5in;
-              height: 11in;
-              overflow: hidden;
-            }
             body * {
               visibility: hidden;
             }
+
+            #resume-preview,
+            #resume-preview * {
+              visibility: visible;
+            }
+
             #resume-preview {
               position: absolute;
               left: 0;
               top: 0;
               width: 100%;
-              height: auto;
-              mrgin: 0;
+              margin: 0;
               padding: 0;
               box-shadow: none !important;
               border: none !important;
+              background: white;
             }
           }
         `}
