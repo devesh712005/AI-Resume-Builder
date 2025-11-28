@@ -27,3 +27,21 @@ Prebuild ui(prebuild component)
 ## font
 
 google font - outfit
+
+## Backend Technologies Used
+
+The backend of this project is built using modern Node.js tools and libraries:
+
+- **Express.js** - Handles routing and API logic
+- **dotenv** - Manages environment variables
+- **cors** - Enables secure cross-origin API requests
+- **bcryptjs** - Encrypts passwords for secure authentication
+- **jsonwebtoken (JWT)** - Provides authentication and token-based security
+- **mongoose** - Simplifies MongoDB database operations
+- **multer** - Handles file uploads such as profile images
+
+These technologies ensure scalable, secure, and efficient backend performance.
+
+## Devlopmwnt Tool
+
+- **Nodemon** - (used as a dev dependency for auto-restarting the server)
