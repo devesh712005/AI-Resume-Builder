@@ -5,7 +5,7 @@ import MinimalTemplate from "./templates/MinimalTemplate";
 import MinimalImageTemplate from "./templates/MinimalImageTemplate";
 function ResumePreview({ data, template, accentColor, classes = "" }) {
   const renderTemplate = () => {
-    switch (template) {
+    switch (template?.toLowerCase()) {
       case "modern":
         return <ModernTemplate data={data} accentColor={accentColor} />;
       case "minimal":
@@ -26,58 +26,35 @@ function ResumePreview({ data, template, accentColor, classes = "" }) {
       >
         {renderTemplate()}
       </div>
-      <style jsx>
-        {`
-          @page {
-            size: letter;
+      <style jsx>{`
+        @page {
+          size: letter;
+          margin: 0;
+        }
+
+        @media print {
+          body * {
+            visibility: hidden !important;
+          }
+
+          #resume-preview,
+          #resume-preview * {
+            visibility: visible !important;
+          }
+
+          #resume-preview {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
             margin: 0;
+            padding: 0;
+            box-shadow: none !important;
+            border: none !important;
+            background: white;
           }
-<<<<<<< HEAD
-
-          @media print {
-            body * {
-              visibility: hidden;
-            }
-
-            #resume-preview,
-            #resume-preview * {
-              visibility: visible;
-            }
-
-=======
-          @media print {
-            html,
-            body {
-              width: 8.5in;
-              height: 11in;
-              overflow: hidden;
-            }
-            body * {
-              visibility: hidden;
-            }
->>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
-            #resume-preview {
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-<<<<<<< HEAD
-              margin: 0;
-              padding: 0;
-              box-shadow: none !important;
-              border: none !important;
-              background: white;
-=======
-              height: auto;
-              mrgin: 0;
-              padding: 0;
-              box-shadow: none !important;
-              border: none !important;
->>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
-            }
-          }
-        `}
-      </style>
+        }
+      `}</style>
     </div>
   );
 }

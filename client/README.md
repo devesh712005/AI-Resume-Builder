@@ -1,5 +1,21 @@
 # React + Vite
 
+# Project Setup Guide
+
+This project uses several important packages for PDF text extraction, API requests, and global state management using Redux Toolkit.  
+Follow the steps below to install and configure everything correctly.
+
+---
+
+## 📦 Required Dependencies
+
+Run the following commands to install all required packages:
+
+```bash
+npm i react-pdftotext
+npm i axios
+npm i react-redux @reduxjs/toolkit
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
@@ -45,3 +61,6 @@ These technologies ensure scalable, secure, and efficient backend performance.
 ## Devlopmwnt Tool
 
 - **Nodemon** - (used as a dev dependency for auto-restarting the server)
+
+
+```

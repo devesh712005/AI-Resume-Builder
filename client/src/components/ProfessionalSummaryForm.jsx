@@ -1,8 +1,52 @@
-<<<<<<< HEAD
-import { Sparkles } from "lucide-react";
+import { Loader2, Sparkles } from "lucide-react";
 import React from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import api from "../configs/api";
+import toast from "react-hot-toast";
 
-const ProfessionalSummaryForm = ({ data, onChange }) => {
+const ProfessionalSummaryForm = ({ data, onChange, resumeData }) => {
+  const { token } = useSelector((state) => state.auth);
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  const generateSummary = async () => {
+    try {
+      // Prevent calling AI on empty input — use resumeData to auto-generate if data empty
+      if ((!data || data.trim() === "") && !resumeData) {
+        toast.error(
+          "Please enter some summary text or fill your profile fields first."
+        );
+        return;
+      }
+
+      setIsGenerating(true);
+
+      // If user provided a summary, enhance it; otherwise ask AI to create from profile
+      const payload = {
+        userContent: data || "", // may be empty — backend will fallback
+        personalInfo: resumeData?.personal_info || {},
+        skills: resumeData?.skills || [],
+      };
+
+      const response = await api.post("/api/ai/enhance-pro-sum", payload, {
+        headers: { Authorization: token },
+      });
+
+      const enhanced = response.data?.enhancedContent;
+      if (!enhanced) {
+        toast.error("AI returned no content. Try again.");
+        return;
+      }
+
+      onChange(enhanced);
+      toast.success("Summary enhanced");
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error.message);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -12,9 +56,17 @@ const ProfessionalSummaryForm = ({ data, onChange }) => {
           </h3>
           <p className="text-sm text-gray-500">Add summary for your resume</p>
         </div>
-        <button className="flex items-center gap-2 px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded hover:bg-purple-200 transition-colors disabled:opacity-50">
-          <Sparkles className="size-4" />
-          AI Enhance
+        <button
+          disabled={isGenerating}
+          onClick={generateSummary}
+          className="flex items-center gap-2 px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded hover:bg-purple-200 transition-colors disabled:opacity-50"
+        >
+          {isGenerating ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            <Sparkles className="size-4" />
+          )}
+          {isGenerating ? "Enhancing..." : "AI Enhance"}
         </button>
       </div>
 
@@ -33,12 +85,6 @@ const ProfessionalSummaryForm = ({ data, onChange }) => {
       </div>
     </div>
   );
-=======
-import React from "react";
-
-const ProfessionalSummaryForm = ({ data, onChange, setResumeData }) => {
-  return <div className="space-y-4"></div>;
->>>>>>> b43400eeab3a617561a46002ee29a7207d7ef77f
 };
 
 export default ProfessionalSummaryForm;
