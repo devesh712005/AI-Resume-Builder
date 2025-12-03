@@ -114,16 +114,12 @@ Resume text:
 ${resumeText}
 `;
 
-    const result = await ai.models.generateContent({
+    // FIX: correct API usage
+    const model = ai.getGenerativeModel({
       model: process.env.OPENAI_MODEL,
-      contents: [
-        {
-          role: "user",
-          parts: [{ text: prompt }],
-        },
-      ],
     });
 
+    const result = await model.generateContent(prompt);
     const raw = result.response.text();
 
     const first = raw.indexOf("{");
