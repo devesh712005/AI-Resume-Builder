@@ -84,14 +84,17 @@ function ResumeBuilder() {
 
   const changeResumeVisibility = async () => {
     try {
-      // Toggle in UI
-      setResumeData((prev) => ({ ...prev, public: !prev.public }));
+      const newPublicValue = !resumeData.public; // ✔ correct toggled value
 
-      // SAVE immediately to DB
-      const updatedData = { ...resumeData, public: !resumeData.public };
+      // Update UI immediately
+      setResumeData((prev) => ({ ...prev, public: newPublicValue }));
+
+      // Prepare data for backend
+      const updatedData = { ...resumeData, public: newPublicValue };
 
       const formData = new FormData();
       formData.append("resumeData", JSON.stringify(updatedData));
+      formData.append("public", newPublicValue); // ✔ backend fix
 
       await api.put(`/api/resumes/update/${resumeId}`, formData, {
         headers: { Authorization: token },
