@@ -22,18 +22,15 @@ An end-to-end **AI-powered resume builder** that helps users create, enhance, an
 
 ![Architecture](./docs/architecture.jpeg)
 
-### Flow Overview
-User (Browser)
-↓
-Frontend (React + Vite)
-↓ REST API (Axios)
-Backend (Node.js + Express)
-↓
-MongoDB Atlas
-↓
-Google Gemini AI
-↓
-ImageKit (Images)
+## 🔄 Request Flow
+
+1. **User (Browser)** interacts with the web app  
+2. **Frontend (React + Vite)** handles UI and state  
+3. **Axios** sends REST API requests  
+4. **Backend (Node.js + Express)** processes logic  
+5. **MongoDB Atlas** stores resume data  
+6. **Google Gemini AI** enhances content  
+7. **ImageKit** manages images
 
 
 
