@@ -1,56 +1,38 @@
-# 🧠 AI Resume Builder
+👇
 
-An end-to-end **AI-powered resume builder** that helps users create, enhance, and manage professional resumes using modern web technologies and Generative AI.
+🚀 AI Resume Builder (MERN + Gemini AI)
 
-🌐 **Live Demo:** https://talentinkai.vercel.app
+A full-stack AI-powered resume builder that helps users create, enhance, and analyze resumes using Google Gemini AI.
+Built with MERN stack + AI integration + cloud services.
 
----
-
-## 🚀 Features
-
-- 🔐 User authentication (JWT based)
-- 📝 Create and edit resumes
-- 📤 Upload existing resumes (PDF/Text)
-- 🤖 AI-powered resume summary & job description enhancement
-- 🖼️ Image upload & management using ImageKit
-- 📄 Resume preview & download
-- 🌍 Fully deployed (Frontend + Backend)
-
----
-
-## 🏗️ High-Level Architecture
-
-![Architecture](./docs/architecture.jpeg)
-
-## 🔄 Request Flow
-
-1. **User (Browser)** interacts with the web app  
-2. **Frontend (React + Vite)** handles UI and state  
-3. **Axios** sends REST API requests  
-4. **Backend (Node.js + Express)** processes logic  
-5. **MongoDB Atlas** stores resume data  
-6. **Google Gemini AI** enhances content  
-7. **ImageKit** manages images
-
-
-
----
-
-## 🧑‍💻 Tech Stack
-
-### Frontend (Client)
-- ⚛️ React 19
-- ⚡ Vite
-- 🧭 React Router DOM
-- 🗂️ Redux Toolkit
-- 🎨 Tailwind CSS
-- 🌐 Axios
-
-### Backend (Server)
-- 🟢 Node.js
-- 🚂 Express.js
-- 🍃 MongoDB + Mongoose
-- 🔐 JWT Authentication
-- 🤖 Google Gemini AI (`@google/generative-ai`)
-- 🖼️ ImageKit
-- 📦 Multer (file uploads)
+🔥 Features
+✨ AI Resume Summary Generator
+Generates professional, ATS-friendly summaries using Gemini AI
+📄 AI Job Description Enhancer
+Converts raw experience into impactful bullet points
+📊 Resume Analyzer (ATS Score)
+Upload resume → get score + improvement suggestions
+🧠 AI Resume Parser
+Converts unstructured resume text into structured JSON
+🔐 Authentication System
+Secure login/signup using JWT
+☁️ Image Upload (ImageKit)
+Upload profile images with optimized CDN delivery
+🗄️ MongoDB Storage
+Store user resumes and data efficiently
+🏗️ Tech Stack
+Frontend
+React.js (Vite)
+Redux Toolkit
+Tailwind CSS
+Axios
+Backend
+Node.js
+Express.js
+MongoDB + Mongoose
+JWT Authentication
+AI Integration
+Google Gemini API (@google/genai)
+Cloud & Services
+ImageKit (media storage)
+MongoDB Atlas
